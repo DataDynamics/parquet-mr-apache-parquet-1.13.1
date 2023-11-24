@@ -326,7 +326,9 @@ public abstract class BaseCommand implements Command, Configurable {
         switch (format) {
             case PARQUET:
                 Configuration conf = new Configuration(getConf());
+                System.out.println("parquet.avro.readInt96AsFixed = " + System.getProperty("parquet.avro.readInt96AsFixed"));
                 if (System.getProperty("parquet.avro.readInt96AsFixed") != null) {
+                    System.out.println("Use parquet.avro.readInt96AsFixed");
                     conf.setBoolean(AvroReadSupport.READ_INT96_AS_FIXED, true);
                 }
 
